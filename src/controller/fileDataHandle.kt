@@ -10,7 +10,7 @@ fun fileDataHandle(requestData : Map<String,String>) : String{
     val tempArr = requestData.get("data")!!.substring(IntRange(1,requestData.get("data")!!.length-2))
 
     //println(tempArr)
-   println(tempArr.split(", "))
+   //println(tempArr.split(", "))
     for(byte in tempArr.split(", "))
         bytes.add(byte.toByte())
     //println(Arrays.toString(bytes.toByteArray()))

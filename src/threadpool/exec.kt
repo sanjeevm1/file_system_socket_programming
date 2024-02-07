@@ -18,9 +18,9 @@ fun exec(server : Socket){
 
 
                 //println("req before")
-                var data = inputReader.readUTF()
+                val data = inputReader.readUTF()
 //        println("req after")
-                println(data)
+                //println(data)
                 val outputSender = DataOutputStream(server.getOutputStream())
                 val requestData: Map<String, String> = parser.parse(data)
 
@@ -32,13 +32,11 @@ fun exec(server : Socket){
                 val prototype = requestData.get("proto")!!
 
                 if (prototype == "initSend") {
-                    outputSender.writeUTF(initReqHandle(requestData))
-                    outputSender.flush()
+                    initReqHandle(requestData)
                 } else if (prototype == "sendData") {
-                    outputSender.writeUTF(fileDataHandle(requestData))
-                    outputSender.flush()
+                    fileDataHandle(requestData)
                 } else if (prototype == "endSend") {
-                    println("hello $prototype")
+                    println("end $prototype")
                     break
                 }
 
